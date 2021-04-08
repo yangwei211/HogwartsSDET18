@@ -6,6 +6,7 @@
 @file: test_sample.py
 @desc: 
 """
+import pytest
 def func(x):
     return x + 1
 
