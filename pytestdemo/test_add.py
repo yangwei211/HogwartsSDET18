@@ -7,8 +7,11 @@
 @desc: 
 """
 import pytest
-
+import yaml
 from Calculator import Calculator
+
+
+
 
 
 class TestCal:
@@ -19,9 +22,16 @@ class TestCal:
     def teardown_class(self):
         print("计算结束")
 
+    def getdatas(self):
+        with open('./data/calc.yaml') as f:
+            datas = yaml.safe_load(f)
+            # print(data)
+        return datas
+
+
     @pytest.mark.parametrize('a,b,expect',[
-        [1,1,2],[0.1,0.1,0.2],[1000,1000,2000],[0,1000,1000]
-    ],ids=['int1', 'float','bignum','zeronum'])
+        getdatas()['int_datas'],
+    ],ids=getdatas()['ids'])
     def test_add(self,a,b,expect):
         assert expect == self.calc.add(a,b)
 
