@@ -1,0 +1,27 @@
+# encoding: utf-8
+"""
+@author: yangwei
+@contact: yangchen211@126.com
+@time: 2021/4/18 2:37 下午
+@file: 测试用例.puml.py
+@desc: 
+"""
+@startuml
+
+
+
+participant 企业微信主页面 as main
+participant 通讯录页面 as contact
+participant 添加成员页面 as add_member
+participant 添加部门页面 as add_department
+participant 导入通讯录页面 as contact_import
+
+main -> contact:跳转到通讯录页面
+main -> add_member: 跳转添加成员页面
+main -> contact_import: 跳转导入通讯录页面
+add_member -> add_member:添加成员操作，点击保存
+add_member -> contact: 填写人员信息
+
+contact -> contact: 获取成员列表
+
+@enduml

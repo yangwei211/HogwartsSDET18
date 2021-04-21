@@ -11,9 +11,6 @@ import yaml
 from Calculator import Calculator
 
 
-
-
-
 class TestCal:
     def setup_class(self):
         print("开始计算")
@@ -28,10 +25,8 @@ class TestCal:
             # print(data)
         return datas
 
-
-    @pytest.mark.parametrize('a,b,expect',[
+    @pytest.mark.parametrize('a,b,expect', [
         getdatas()['int_datas'],
-    ],ids=getdatas()['ids'])
-    def test_add(self,a,b,expect):
-        assert expect == self.calc.add(a,b)
-
+    ], ids=getdatas()['ids'])
+    def test_add(self, a, b, expect):
+        assert expect == self.calc.add(a, b)

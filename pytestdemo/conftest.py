@@ -11,13 +11,17 @@ import pytest
 
 @pytest.fixture()
 def connectDb():
-    print("连接数据库")
+    # 相当于setuo
+    print("连接数据库操作")
     # return "database datas"
-    yield "搜索结果"  # 返回后面的结果，yeiled相当于return
+    yield "搜索结果"   # 返回后面的结果 相当于return
     # 相当于teardown
-    print("断开连接")
+    print("断开数据库连接")
 
 
 @pytest.fixture()
 def login():
     print("login")
+    username = "hogwarts"
+    password = "123"
+    return username, password
