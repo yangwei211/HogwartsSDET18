@@ -1,0 +1,25 @@
+# encoding: utf-8
+"""
+@author: yangwei
+@contact: yangchen211@126.com
+@time: 2021/4/24 2:42 下午
+@file: 测试用例2.puml.py
+@desc: 
+"""
+
+@startuml
+
+
+
+participant 首页 as index
+participant 通讯录页 as contactlist
+participant 添加成员页面 as addmember
+participant 编辑成员页面 as editmember
+
+index -> contactlist : 点击（通讯录）
+contactlist -> addmember : 点击【添加成员】
+addmember -> editmember : 点击【手动输入添加]
+editmember -> addmember : 点击【保存】，验证添加成功
+
+
+@enduml
