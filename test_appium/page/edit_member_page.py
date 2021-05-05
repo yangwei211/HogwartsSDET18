@@ -10,19 +10,18 @@
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 
-
-class EditMemberPage:
-    def __init__(self,driver:WebDriver):
-        self.driver = driver
+from test_appium.page.base_page import BasePage
 
 
-    def edit_member(self,name,phonenum):
+class EditMemberPage(BasePage):
+
+    def edit_member(self, name, phonenum):
         # input name
         # input phonenum
         # click 保存
         from test_appium.page.add_member_page import AddMemberPage
-        self.driver.find_element(MobileBy.XPATH, "//*[contains(@text,'姓名')]/../*[@text='必填']").send_keys(name)
-        self.driver.find_element(MobileBy.XPATH, "//*[contains(@text,'手机')]/..//android.widget.EditText").send_keys(
+        self.find(MobileBy.XPATH, "//*[contains(@text,'姓名')]/../*[@text='必填']").send_keys(name)
+        self.find(MobileBy.XPATH, "//*[contains(@text,'手机')]/..//android.widget.EditText").send_keys(
             phonenum)
-        self.driver.find_element(MobileBy.XPATH, "//*[@text='保存']").click()
+        self.find(MobileBy.XPATH, "//*[@text='保存']").click()
         return AddMemberPage(self.driver)
