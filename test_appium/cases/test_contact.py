@@ -13,6 +13,8 @@ from test_appium.utils.contact_info import ContactInfo
 
 
 class TestContact:
+
+
     def setup_class(self):
         self.contactinfo=ContactInfo()
         self.app = App()

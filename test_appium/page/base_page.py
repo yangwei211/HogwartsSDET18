@@ -23,8 +23,24 @@ class BasePage:
         self.driver = driver
 
     def find(self, by, value):
-        logging.info(by)
-        logging.info(value)
+        # logging.info(by)
+        # logging.info(value)
+
+        logging.basicConfig(level=logging.DEBUG,
+
+                format='%(asctime)s %(filename)s[line:%(lineno)d ] %(levelname)s %(message)s', #时间 文件名 line:行号 levelname logn内容
+
+                datefmt='%d %b %Y,%a %H:%M:%S', #日 月 年 ，星期 时 分 秒
+
+                filename='../logs/mylog.log',
+
+                filemode='w')
+
+        logging.debug('debug message')
+
+        logging.info('info message')
+
+        logging.warning('warning message')
         # 查找元素
         return self.driver.find_element(by, value)
 
