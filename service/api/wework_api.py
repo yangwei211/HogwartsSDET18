@@ -12,6 +12,7 @@ import requests
 
 
 class WeWork:
+    # 可以不用加的，只是为了声明类型，Python也开始支持类型了，是Python3的一个技巧
     token = None
 
     def get_token(self):
