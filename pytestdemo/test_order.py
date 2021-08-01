@@ -11,20 +11,15 @@ from selenium import webdriver
 
 
 @pytest.mark.second
-def test_one():
-    print("one")
+def test_foo():
+    assert True
 
 
 @pytest.mark.last
 def test_last():
-    print("laast")
+    print("last")
 
 
 @pytest.mark.first
-def test_two():
-    print("two")
-
-
-def test_demo():
-    driver = webdriver.Chrome()
-    driver.get("www.baidu.com")
+def test_bar():
+    assert True

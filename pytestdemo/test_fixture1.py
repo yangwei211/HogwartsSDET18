@@ -14,12 +14,13 @@ import pytest
 #     print("测试auto")
 
 @pytest.fixture(params=[['tom',123],['jerry',456]],
-                ids=['tom','jerry']
-                )
+                ids=['tom','jerry'])
 def login(request):
+    # request是固定的写法，request.param也是固定写法
     return request.param
+    # print(request.param)
     # print("login")
 
-
+# fixture提供给测试用例参数
 def test_login(login):
     print(login)
