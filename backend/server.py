@@ -26,6 +26,8 @@ port='3306'
 database='test_ck18'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     f'mysql+pymysql://{username}:{pwd}@{ip}:{port}/{database}?charset=utf8'
+# 解决数据库warning问题
+app.config['SQLALCHEMY_TRACK_MODIFICATION'] = True
 db = SQLAlchemy(app)
 
 
