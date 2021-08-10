@@ -19,10 +19,19 @@ def teardown_function():
 def test_case1():
     print("case1")
 
+class TestDemo1:
+    def setup_class(self):
+        print("TestDemo setup_class")
+
+    def teardown_class(self):
+        print("TestDemo teardown_class")
 
 
+    def setup(self):
+        print("TestDemo setup")
 
-
+    def teardown(self):
+        print("TestDemo teardown")
 
 
 
