@@ -54,6 +54,7 @@ class TestCaseService(Resource):
         # testcase.nodeid = json.dumps(request.json.get('nodeid'))
         db.session.add(testcase)
         db.session.commit()
+        db.session.close()
         return {"error": 0, "message": "post success"}
 
     def put(self):
@@ -65,6 +66,7 @@ class TestCaseService(Resource):
             update(request.json)
         # 修改之后commit到数据库
         db.session.commit()
+        db.session.close()
         app.logger.info(f'数据已修改，id{case}被修改为{request.json}')
         return {"error": 0, "msg": {"id": case}}
 
@@ -75,6 +77,8 @@ class TestCaseService(Resource):
         # 返回一个主键
         case = Testcase.query.filter_by(id=case_id).delete()
         db.session.commit()
+        # 关闭当前的session连接
+        db.session.close()
         app.logger.info(case)
 
         return {"error": 0, "msg": {"id": case}}
