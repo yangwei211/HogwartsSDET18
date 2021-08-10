@@ -7,5 +7,4 @@ class TestExecuteTools:
         print(ExecuteTools.get_jobs())
 
     def test_invoke(self):
-        ExecuteTools.invoke()
         print(ExecuteTools.invoke())
